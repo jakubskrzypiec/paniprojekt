@@ -12,26 +12,30 @@ document.addEventListener("DOMContentLoaded", () => {
         requestAnimationFrame(() => splash.classList.add("is-ready"));
       });
 
-      setTimeout(() => splash.classList.add("is-leaving"), 2250);
+      setTimeout(() => splash.classList.add("is-leaving"), 2100);
       setTimeout(() => {
         document.body.classList.remove("is-splashing");
         splash.remove();
-      }, 3100);
+      }, 2950);
     }
   }
 
   const revealItems = document.querySelectorAll(".reveal");
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
 
-  revealItems.forEach((item) => observer.observe(item));
+    revealItems.forEach((item) => observer.observe(item));
+  } else {
+    revealItems.forEach((item) => item.classList.add("visible"));
+  }
 
   const header = document.querySelector(".site-header");
   let lastY = window.scrollY;
@@ -43,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentY = window.scrollY;
 
     if (currentY > lastY && currentY > 130) {
-      header.style.transform = "translateX(-50%) translateY(-135%)";
+      header.style.transform = "translateX(-50%) translateY(-130%)";
       header.style.opacity = "0";
     } else {
       header.style.transform = "translateX(-50%) translateY(0)";
