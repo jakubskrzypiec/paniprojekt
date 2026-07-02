@@ -91,8 +91,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const revealItems = Array.from(document.querySelectorAll(".reveal"));
   revealItems.forEach((item, index) => {
-    const localIndex = index % 5;
-    item.style.setProperty("--delay", `${localIndex * 70}ms`);
+    const localIndex = index % 3;
+    item.style.setProperty("--delay", `${localIndex * 30}ms`);
   });
 
   if (prefersReducedMotion) {
