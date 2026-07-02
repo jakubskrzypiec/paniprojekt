@@ -9,17 +9,27 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=4" />
+  <link rel="stylesheet" href="style.css?v=5" />
 </head>
 <body>
   <div class="splash-screen" aria-hidden="true">
+    <img class="splash-photo" src="hero.png" alt="" />
+    <div class="splash-panels">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
     <div class="splash-card">
       <img src="logo.png" alt="" />
-      <span></span>
-      <p>Pani Projekt</p>
-      <small>projektowanie wnętrz</small>
+      <div class="splash-wordmark">
+        <span>Pani</span>
+        <span>Projekt</span>
+      </div>
+      <i></i>
+      <p>projektowanie wnętrz / Julia Grolik</p>
     </div>
   </div>
 
@@ -45,13 +55,13 @@
       <div class="hero-shade"></div>
 
       <div class="hero-content">
-        <p class="hero-kicker">Pani Projekt / Julia Grolik</p>
-        <h1>Spokojne wnętrza. Dopracowane w każdym detalu.</h1>
-        <p>Projektowanie mieszkań, domów i pojedynczych pomieszczeń — jasno, funkcjonalnie i bez przypadkowych decyzji.</p>
-      </div>
-
-      <div class="hero-mark" aria-hidden="true">
-        <span></span>
+        <p class="hero-kicker">Pani Projekt / wnętrza prywatne</p>
+        <h1>
+          <span>Wnętrza</span>
+          <span>z ciszą,</span>
+          <span>funkcją i światłem.</span>
+        </h1>
+        <p>Spokojne projekty mieszkań, domów i pojedynczych pomieszczeń — bez nadmiaru, bez przypadkowości, z decyzjami dopracowanymi przed realizacją.</p>
       </div>
     </section>
 
@@ -60,38 +70,36 @@
     </section>
 
     <section class="studio-section section-padding" id="studio">
-      <div class="section-label reveal" data-reveal="fade">Studio</div>
-
-      <div class="studio-grid">
+      <div class="studio-layout">
         <figure class="studio-photo reveal" data-reveal="left">
           <img src="salonkuchnia2.jpg" alt="Jasna strefa dzienna w projekcie Pani Projekt" loading="lazy" />
         </figure>
 
         <div class="studio-copy reveal" data-reveal="right">
-          <p class="eyebrow">O pracowni</p>
-          <h2>Najpierw rytm życia. Potem forma, światło i materiały.</h2>
+          <p class="eyebrow">Studio</p>
+          <h2>Projekt zaczyna się od sposobu życia, nie od trendu.</h2>
           <p>
-            Pani Projekt tworzy wnętrza, które mają działać na co dzień. Projekt zaczyna się od rozmowy o tym, jak ktoś mieszka, czego potrzebuje i co chce uprościć w swojej przestrzeni.
+            Pani Projekt tworzy wnętrza, które są spokojne wizualnie i wygodne w codziennym użyciu. Najpierw pojawia się rozmowa, rytm dnia i potrzeby domowników. Dopiero później dobierane są materiały, proporcje, kolor i detal.
           </p>
           <p>
-            Dopiero później pojawia się klimat: paleta kolorów, materiały, detale i wizualizacje. Efekt ma być estetyczny, ale przede wszystkim wygodny i spójny z domownikami.
+            Efekt ma wyglądać lekko, ale pod spodem musi mieć bardzo konkretną logikę: przechowywanie, komunikację, światło i decyzje, które nie będą przypadkowe po wejściu na realizację.
           </p>
 
-          <div class="studio-principles">
-            <div class="principle reveal" data-reveal="up">
+          <div class="studio-note" aria-label="Założenia projektowe">
+            <div>
               <span>01</span>
-              <strong>Funkcja</strong>
-              <p>Układ, który nie przeszkadza w codzienności.</p>
+              <strong>Układ</strong>
+              <p>Przestrzeń ma pracować z codziennością, a nie tylko dobrze wyglądać na kadrze.</p>
             </div>
-            <div class="principle reveal" data-reveal="up">
+            <div>
               <span>02</span>
-              <strong>Spokój</strong>
-              <p>Kolory i materiały bez wizualnego chaosu.</p>
+              <strong>Materiały</strong>
+              <p>Paleta jest spokojna, ale nie nudna — oparta na fakturach, świetle i proporcji.</p>
             </div>
-            <div class="principle reveal" data-reveal="up">
+            <div>
               <span>03</span>
               <strong>Detal</strong>
-              <p>Decyzje dopracowane przed realizacją.</p>
+              <p>Decyzje są porządkowane wcześniej, żeby na końcu nie ratować projektu przypadkiem.</p>
             </div>
           </div>
         </div>
@@ -101,44 +109,51 @@
     <section class="offer-section section-padding" id="oferta">
       <div class="section-head reveal" data-reveal="up">
         <p class="eyebrow">Oferta</p>
-        <h2>Zakres dobrany do etapu, na którym jesteś.</h2>
-        <p>Bez ciężkich bloków i bez suchej listy usług — każdy zakres ma swój klimat, obraz i prosty opis.</p>
+        <h2>Zakres współpracy dopasowany do tego, czego naprawdę potrzebujesz.</h2>
       </div>
 
-      <div class="offer-grid">
-        <article class="offer-card reveal" data-reveal="up">
-          <img src="salonkuchnia1.jpg" alt="Salon z kuchnią" loading="lazy" />
+      <div class="offer-list" aria-label="Oferta Pani Projekt">
+        <article class="offer-row reveal" data-reveal="up">
+          <figure>
+            <img src="salonkuchnia1.jpg" alt="Salon z kuchnią" loading="lazy" />
+          </figure>
           <div>
-            <span>01</span>
+            <span>01 / Koncepcja</span>
             <h3>Projekt koncepcyjny</h3>
-            <p>Układ funkcjonalny, kierunek stylistyczny, moodboard, kolorystyka i pierwsze decyzje materiałowe.</p>
+            <p>Układ funkcjonalny, kierunek stylistyczny, moodboard, kolorystyka i pierwsze decyzje materiałowe. Dobry start, kiedy potrzebujesz jasnego kierunku.</p>
           </div>
         </article>
 
-        <article class="offer-card reveal" data-reveal="up">
-          <img src="kuchnia1.jpg" alt="Kuchnia" loading="lazy" />
+        <article class="offer-row reveal" data-reveal="up">
+          <figure>
+            <img src="kuchnia1.jpg" alt="Jasna kuchnia" loading="lazy" />
+          </figure>
           <div>
-            <span>02</span>
+            <span>02 / Pełny projekt</span>
             <h3>Projekt kompleksowy</h3>
-            <p>Pełniejsze opracowanie wnętrza z wizualizacjami, detalami i rozwiązaniami do realizacji.</p>
+            <p>Pełniejsze opracowanie wnętrza z wizualizacjami, dopracowaniem detali i rozwiązaniami, które pomagają wejść w realizację bez chaosu.</p>
           </div>
         </article>
 
-        <article class="offer-card reveal" data-reveal="up">
-          <img src="lazienka2.jpg" alt="Łazienka" loading="lazy" />
+        <article class="offer-row reveal" data-reveal="up">
+          <figure>
+            <img src="lazienka2.jpg" alt="Łazienka" loading="lazy" />
+          </figure>
           <div>
-            <span>03</span>
+            <span>03 / Obraz</span>
             <h3>Wizualizacje</h3>
-            <p>Realistyczne kadry, które pozwalają poczuć przestrzeń przed zakupami i pracami wykończeniowymi.</p>
+            <p>Realistyczne kadry pozwalające zobaczyć światło, materiały, proporcje i klimat wnętrza zanim zaczną się zakupy oraz prace.</p>
           </div>
         </article>
 
-        <article class="offer-card reveal" data-reveal="up">
-          <img src="sypialnia2.jpg" alt="Sypialnia" loading="lazy" />
+        <article class="offer-row reveal" data-reveal="up">
+          <figure>
+            <img src="sypialnia2.jpg" alt="Sypialnia" loading="lazy" />
+          </figure>
           <div>
-            <span>04</span>
+            <span>04 / Decyzje</span>
             <h3>Konsultacja</h3>
-            <p>Pomoc przy układzie, kolorach, materiałach, oświetleniu albo konkretnych decyzjach we wnętrzu.</p>
+            <p>Wsparcie przy układzie, kolorach, materiałach, oświetleniu lub pojedynczych decyzjach, które blokują dalszy etap urządzania.</p>
           </div>
         </article>
       </div>
@@ -155,75 +170,26 @@
     <section class="portfolio-section section-padding" id="realizacje">
       <div class="section-head reveal" data-reveal="up">
         <p class="eyebrow">Portfolio</p>
-        <h2>Wybrane kadry w spokojnym, równym układzie.</h2>
-        <p>Więcej zdjęć, ale bez chaosu. Wszystkie kafle mają ten sam rytm, więc galeria wygląda czyściej i bardziej premium.</p>
+        <h2>Wybrane kadry w równym, spokojnym rytmie.</h2>
       </div>
 
       <div class="portfolio-grid" aria-label="Galeria projektów">
-        <figure class="portfolio-item reveal" data-reveal="scale">
-          <img src="salonkuchnia1.jpg" alt="Salon z kuchnią — ujęcie 1" loading="lazy" />
-          <figcaption>Salon z kuchnią</figcaption>
-        </figure>
-        <figure class="portfolio-item reveal" data-reveal="scale">
-          <img src="salonkuchnia2.jpg" alt="Salon z kuchnią — ujęcie 2" loading="lazy" />
-          <figcaption>Strefa dzienna</figcaption>
-        </figure>
-        <figure class="portfolio-item reveal" data-reveal="scale">
-          <img src="salonkuchnia3.jpg" alt="Salon z kuchnią — ujęcie 3" loading="lazy" />
-          <figcaption>Detal salonu</figcaption>
-        </figure>
-        <figure class="portfolio-item reveal" data-reveal="scale">
-          <img src="kuchnia1.jpg" alt="Kuchnia — ujęcie 1" loading="lazy" />
-          <figcaption>Kuchnia</figcaption>
-        </figure>
-        <figure class="portfolio-item reveal" data-reveal="scale">
-          <img src="kuchnia2.jpg" alt="Kuchnia — ujęcie 2" loading="lazy" />
-          <figcaption>Jasna zabudowa</figcaption>
-        </figure>
-        <figure class="portfolio-item reveal" data-reveal="scale">
-          <img src="lazienka1.jpg" alt="Łazienka — ujęcie 1" loading="lazy" />
-          <figcaption>Łazienka</figcaption>
-        </figure>
-        <figure class="portfolio-item reveal" data-reveal="scale">
-          <img src="lazienka2.jpg" alt="Łazienka — ujęcie 2" loading="lazy" />
-          <figcaption>Ciepły minimalizm</figcaption>
-        </figure>
-        <figure class="portfolio-item reveal" data-reveal="scale">
-          <img src="lazienka3.jpg" alt="Łazienka — ujęcie 3" loading="lazy" />
-          <figcaption>Detale</figcaption>
-        </figure>
-        <figure class="portfolio-item reveal" data-reveal="scale">
-          <img src="sypialnia1.jpg" alt="Sypialnia — ujęcie 1" loading="lazy" />
-          <figcaption>Sypialnia</figcaption>
-        </figure>
-        <figure class="portfolio-item reveal" data-reveal="scale">
-          <img src="sypialnia2.jpg" alt="Sypialnia — ujęcie 2" loading="lazy" />
-          <figcaption>Miękkie światło</figcaption>
-        </figure>
-        <figure class="portfolio-item reveal" data-reveal="scale">
-          <img src="sypialnia3.jpg" alt="Sypialnia — ujęcie 3" loading="lazy" />
-          <figcaption>Spokojna baza</figcaption>
-        </figure>
-        <figure class="portfolio-item reveal" data-reveal="scale">
-          <img src="sypialnaiciemna1.jpg" alt="Ciemna sypialnia — ujęcie 1" loading="lazy" />
-          <figcaption>Ciemniejszy klimat</figcaption>
-        </figure>
-        <figure class="portfolio-item reveal" data-reveal="scale">
-          <img src="sypialnaiciemna2.jpg" alt="Ciemna sypialnia — ujęcie 2" loading="lazy" />
-          <figcaption>Kontrast</figcaption>
-        </figure>
-        <figure class="portfolio-item reveal" data-reveal="scale">
-          <img src="przedpokoj1.jpg" alt="Przedpokój — ujęcie 1" loading="lazy" />
-          <figcaption>Przedpokój</figcaption>
-        </figure>
-        <figure class="portfolio-item reveal" data-reveal="scale">
-          <img src="przedpokoj2.jpg" alt="Przedpokój — ujęcie 2" loading="lazy" />
-          <figcaption>Pierwsze wrażenie</figcaption>
-        </figure>
-        <figure class="portfolio-item reveal" data-reveal="scale">
-          <img src="przedpokoj3.jpg" alt="Przedpokój — ujęcie 3" loading="lazy" />
-          <figcaption>Funkcja wejścia</figcaption>
-        </figure>
+        <figure class="portfolio-item reveal" data-reveal="scale"><img src="salonkuchnia1.jpg" alt="Salon z kuchnią — ujęcie 1" loading="lazy" /><figcaption>Salon z kuchnią</figcaption></figure>
+        <figure class="portfolio-item reveal" data-reveal="scale"><img src="salonkuchnia2.jpg" alt="Salon z kuchnią — ujęcie 2" loading="lazy" /><figcaption>Strefa dzienna</figcaption></figure>
+        <figure class="portfolio-item reveal" data-reveal="scale"><img src="salonkuchnia3.jpg" alt="Salon z kuchnią — ujęcie 3" loading="lazy" /><figcaption>Detal salonu</figcaption></figure>
+        <figure class="portfolio-item reveal" data-reveal="scale"><img src="kuchnia1.jpg" alt="Kuchnia — ujęcie 1" loading="lazy" /><figcaption>Kuchnia</figcaption></figure>
+        <figure class="portfolio-item reveal" data-reveal="scale"><img src="kuchnia2.jpg" alt="Kuchnia — ujęcie 2" loading="lazy" /><figcaption>Jasna zabudowa</figcaption></figure>
+        <figure class="portfolio-item reveal" data-reveal="scale"><img src="lazienka1.jpg" alt="Łazienka — ujęcie 1" loading="lazy" /><figcaption>Łazienka</figcaption></figure>
+        <figure class="portfolio-item reveal" data-reveal="scale"><img src="lazienka2.jpg" alt="Łazienka — ujęcie 2" loading="lazy" /><figcaption>Ciepły minimalizm</figcaption></figure>
+        <figure class="portfolio-item reveal" data-reveal="scale"><img src="lazienka3.jpg" alt="Łazienka — ujęcie 3" loading="lazy" /><figcaption>Detale</figcaption></figure>
+        <figure class="portfolio-item reveal" data-reveal="scale"><img src="sypialnia1.jpg" alt="Sypialnia — ujęcie 1" loading="lazy" /><figcaption>Sypialnia</figcaption></figure>
+        <figure class="portfolio-item reveal" data-reveal="scale"><img src="sypialnia2.jpg" alt="Sypialnia — ujęcie 2" loading="lazy" /><figcaption>Miękkie światło</figcaption></figure>
+        <figure class="portfolio-item reveal" data-reveal="scale"><img src="sypialnia3.jpg" alt="Sypialnia — ujęcie 3" loading="lazy" /><figcaption>Spokojna baza</figcaption></figure>
+        <figure class="portfolio-item reveal" data-reveal="scale"><img src="sypialnaiciemna1.jpg" alt="Ciemna sypialnia — ujęcie 1" loading="lazy" /><figcaption>Ciemniejszy klimat</figcaption></figure>
+        <figure class="portfolio-item reveal" data-reveal="scale"><img src="sypialnaiciemna2.jpg" alt="Ciemna sypialnia — ujęcie 2" loading="lazy" /><figcaption>Kontrast</figcaption></figure>
+        <figure class="portfolio-item reveal" data-reveal="scale"><img src="przedpokoj1.jpg" alt="Przedpokój — ujęcie 1" loading="lazy" /><figcaption>Przedpokój</figcaption></figure>
+        <figure class="portfolio-item reveal" data-reveal="scale"><img src="przedpokoj2.jpg" alt="Przedpokój — ujęcie 2" loading="lazy" /><figcaption>Pierwsze wrażenie</figcaption></figure>
+        <figure class="portfolio-item reveal" data-reveal="scale"><img src="przedpokoj3.jpg" alt="Przedpokój — ujęcie 3" loading="lazy" /><figcaption>Funkcja wejścia</figcaption></figure>
       </div>
     </section>
 
@@ -231,40 +197,16 @@
       <div class="process-layout">
         <div class="process-copy reveal" data-reveal="left">
           <p class="eyebrow">Proces</p>
-          <h2>Praca prowadzona spokojnie, etap po etapie.</h2>
-          <p>Proces nie jest pokazany jak sztywna tabela. Ma przypominać ścieżkę: od rozmowy i układu, przez klimat, po decyzje gotowe do realizacji.</p>
+          <h2>Spokojna ścieżka od rozmowy do decyzji.</h2>
+          <p>Bez nerwowej listy zadań. Najpierw porządek w potrzebach, później układ, klimat, materiały i wizualny obraz gotowy do dalszych działań.</p>
           <img src="przedpokoj3.jpg" alt="Przedpokój z dopracowaną zabudową" loading="lazy" />
         </div>
 
         <div class="process-steps" aria-label="Etapy współpracy">
-          <article class="process-step reveal" data-reveal="right">
-            <span>01</span>
-            <div>
-              <h3>Rozmowa i potrzeby</h3>
-              <p>Metraż, styl życia, budżet, zakres projektu i pierwsze inspiracje.</p>
-            </div>
-          </article>
-          <article class="process-step reveal" data-reveal="right">
-            <span>02</span>
-            <div>
-              <h3>Układ funkcjonalny</h3>
-              <p>Porządek w przestrzeni, komunikacja, przechowywanie i sensowne strefy.</p>
-            </div>
-          </article>
-          <article class="process-step reveal" data-reveal="right">
-            <span>03</span>
-            <div>
-              <h3>Klimat i materiały</h3>
-              <p>Kolory, światło, faktury, zabudowy i detale, które tworzą spójność.</p>
-            </div>
-          </article>
-          <article class="process-step reveal" data-reveal="right">
-            <span>04</span>
-            <div>
-              <h3>Wizualizacje i decyzje</h3>
-              <p>Czytelny obraz wnętrza przed realizacją i dopracowanie najważniejszych elementów.</p>
-            </div>
-          </article>
+          <article class="process-step reveal" data-reveal="right"><span>01</span><div><h3>Rozmowa i potrzeby</h3><p>Metraż, styl życia, budżet, zakres projektu i pierwsze inspiracje.</p></div></article>
+          <article class="process-step reveal" data-reveal="right"><span>02</span><div><h3>Układ funkcjonalny</h3><p>Komunikacja, przechowywanie, strefy i rozwiązania, które porządkują przestrzeń.</p></div></article>
+          <article class="process-step reveal" data-reveal="right"><span>03</span><div><h3>Klimat i materiały</h3><p>Kolory, faktury, światło, zabudowy i detale budujące spójność.</p></div></article>
+          <article class="process-step reveal" data-reveal="right"><span>04</span><div><h3>Wizualizacje i decyzje</h3><p>Czytelny obraz wnętrza przed realizacją i dopracowanie najważniejszych elementów.</p></div></article>
         </div>
       </div>
     </section>
@@ -276,21 +218,12 @@
       <div class="contact-content reveal" data-reveal="up">
         <p class="eyebrow">Kontakt</p>
         <h2>Opowiedz o wnętrzu, które chcesz uporządkować.</h2>
-        <p>Bez formularza i bez zbędnego klikania. Najprościej napisać maila albo odezwać się przez social media.</p>
+        <p>Najprościej napisać maila albo odezwać się przez social media. Wystarczy kilka zdań o metrażu, zakresie i tym, co ma się zmienić.</p>
 
         <div class="contact-links" aria-label="Dane kontaktowe">
-          <a href="mailto:pani.projekt1@gmail.com">
-            <span>Mail</span>
-            <strong>pani.projekt1@gmail.com</strong>
-          </a>
-          <a href="https://www.instagram.com/pani_projekt/" target="_blank" rel="noopener">
-            <span>Instagram</span>
-            <strong>@pani_projekt</strong>
-          </a>
-          <a href="https://www.facebook.com/profile.php?id=61565621736952" target="_blank" rel="noopener">
-            <span>Facebook</span>
-            <strong>Pani Projekt</strong>
-          </a>
+          <a href="mailto:pani.projekt1@gmail.com"><span>Mail</span><strong>pani.projekt1@gmail.com</strong></a>
+          <a href="https://www.instagram.com/pani_projekt/" target="_blank" rel="noopener"><span>Instagram</span><strong>@pani_projekt</strong></a>
+          <a href="https://www.facebook.com/profile.php?id=61565621736952" target="_blank" rel="noopener"><span>Facebook</span><strong>Pani Projekt</strong></a>
         </div>
       </div>
     </section>
@@ -317,6 +250,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=4"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>

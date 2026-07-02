@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const setPageReady = () => body.classList.add("page-ready");
 
   const closeSplash = () => {
-    if (!splash) {
+    if (!splash || !document.body.contains(splash)) {
       setPageReady();
       return;
     }
@@ -18,9 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.setTimeout(() => {
       body.classList.remove("is-splashing");
-      splash.remove();
+      if (document.body.contains(splash)) splash.remove();
       setPageReady();
-    }, 820);
+    }, 850);
   };
 
   if (splash) {
@@ -34,12 +34,12 @@ document.addEventListener("DOMContentLoaded", () => {
         requestAnimationFrame(() => splash.classList.add("is-ready"));
       });
 
-      window.setTimeout(closeSplash, 2050);
+      window.setTimeout(closeSplash, 3450);
 
-      // Failsafe — splash zawsze znika, nawet jeśli przeglądarka zgubi animację.
+      // Failsafe — intro zawsze znika, nawet gdy telefon zgubi animację.
       window.setTimeout(() => {
         if (document.body.contains(splash)) closeSplash();
-      }, 3600);
+      }, 5200);
     }
   } else {
     setPageReady();
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const setHeaderState = () => {
     if (!header) return;
-    header.classList.toggle("is-scrolled", window.scrollY > 34);
+    header.classList.toggle("is-scrolled", window.scrollY > 24);
   };
 
   setHeaderState();
@@ -90,10 +90,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const revealItems = Array.from(document.querySelectorAll(".reveal"));
-
   revealItems.forEach((item, index) => {
-    const localIndex = index % 6;
-    item.style.setProperty("--delay", `${localIndex * 55}ms`);
+    const localIndex = index % 5;
+    item.style.setProperty("--delay", `${localIndex * 70}ms`);
   });
 
   if (prefersReducedMotion) {
@@ -109,8 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.unobserve(entry.target);
       });
     }, {
-      threshold: 0.13,
-      rootMargin: "0px 0px -54px 0px"
+      threshold: 0.12,
+      rootMargin: "0px 0px -64px 0px"
     });
 
     revealItems.forEach((item) => observer.observe(item));
