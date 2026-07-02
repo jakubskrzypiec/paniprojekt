@@ -1,77 +1,102 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
   const splash = document.querySelector(".splash-screen");
-  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const header = document.querySelector("[data-header]");
+  const menuButton = document.querySelector(".menu-toggle");
+  const nav = document.querySelector(".nav");
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const closeSplash = () => {
+    if (!splash) return;
+    splash.classList.add("is-leaving");
+    window.setTimeout(() => {
+      body.classList.remove("is-splashing");
+      splash.remove();
+    }, 850);
+  };
 
   if (splash) {
-    if (reduced) {
+    if (prefersReducedMotion) {
       splash.remove();
     } else {
-      document.body.classList.add("is-splashing");
-
+      body.classList.add("is-splashing");
       requestAnimationFrame(() => {
         requestAnimationFrame(() => splash.classList.add("is-ready"));
       });
-
-      setTimeout(() => splash.classList.add("is-leaving"), 2100);
-      setTimeout(() => {
-        document.body.classList.remove("is-splashing");
-        splash.remove();
-      }, 2950);
+      window.setTimeout(closeSplash, 2250);
+      window.setTimeout(() => {
+        if (document.body.contains(splash)) closeSplash();
+      }, 3800);
     }
   }
 
+  const setHeaderState = () => {
+    if (!header) return;
+    header.classList.toggle("is-scrolled", window.scrollY > 28);
+  };
+
+  setHeaderState();
+  window.addEventListener("scroll", setHeaderState, { passive: true });
+
+  const closeMenu = () => {
+    if (!menuButton || !nav) return;
+    menuButton.classList.remove("is-active");
+    nav.classList.remove("is-open");
+    body.classList.remove("menu-open");
+    menuButton.setAttribute("aria-expanded", "false");
+  };
+
+  if (menuButton && nav) {
+    menuButton.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("is-open");
+      menuButton.classList.toggle("is-active", isOpen);
+      body.classList.toggle("menu-open", isOpen);
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const targetId = link.getAttribute("href");
+      if (!targetId || targetId === "#") return;
+
+      const target = document.querySelector(targetId);
+      if (!target) return;
+
+      event.preventDefault();
+      closeMenu();
+      target.scrollIntoView({
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+        block: "start"
+      });
+    });
+  });
+
   const revealItems = document.querySelectorAll(".reveal");
+
+  if (prefersReducedMotion) {
+    revealItems.forEach((item) => item.classList.add("visible"));
+    return;
+  }
 
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
       });
-    }, { threshold: 0.12 });
+    }, {
+      threshold: 0.12,
+      rootMargin: "0px 0px -40px 0px"
+    });
 
     revealItems.forEach((item) => observer.observe(item));
   } else {
     revealItems.forEach((item) => item.classList.add("visible"));
   }
 
-  const header = document.querySelector(".site-header");
-  let lastY = window.scrollY;
-  let ticking = false;
-
-  const updateHeader = () => {
-    if (!header) return;
-
-    const currentY = window.scrollY;
-
-    if (currentY > lastY && currentY > 130) {
-      header.style.transform = "translateX(-50%) translateY(-130%)";
-      header.style.opacity = "0";
-    } else {
-      header.style.transform = "translateX(-50%) translateY(0)";
-      header.style.opacity = "1";
-    }
-
-    lastY = Math.max(currentY, 0);
-    ticking = false;
-  };
-
-  window.addEventListener("scroll", () => {
-    if (!ticking) {
-      requestAnimationFrame(updateHeader);
-      ticking = true;
-    }
-  }, { passive: true });
-
-  document.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener("click", (event) => {
-      const target = document.querySelector(link.getAttribute("href"));
-      if (!target) return;
-
-      event.preventDefault();
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMenu();
   });
 });
